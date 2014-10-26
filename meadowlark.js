@@ -1,4 +1,5 @@
 var express = require('express');
+var fortune = require('./libs/fortune');
 
 var app = express();
 
@@ -16,15 +17,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-  var fortunes = [
-    "Conquer your feats or they will conquer you.",
-    "Rivers need springs.",
-    "Do not fear what oyu don't know.",
-    "you will have a pleasant suprise.",
-    "Whenever possible, keep it simple."
-  ];
-  var randomeFourtune = fortunes[Math.floor(Math.random() * fortunes.length)];
-  res.render('about', {fortune: randomeFourtune});
+  res.render('about', {fortune: fortune.getFortune()});
 });
 
 // custome 404 page
