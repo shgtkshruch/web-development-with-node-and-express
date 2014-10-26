@@ -5,7 +5,8 @@
   "main": "meadowlark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon meadowlark.js"
+    "start": "nodemon meadowlark.js",
+    "qa": "mocha -u tdd -R spec qa/tests-crosspage.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "chai": "^1.9.2",
-    "mocha": "^2.0.1"
+    "mocha": "^2.0.1",
+    "zombie": "^2.1.1"
   }
 }
