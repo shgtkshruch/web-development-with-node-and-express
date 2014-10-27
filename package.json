@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/shgtkshruch/web-development-with-node-and-express",
   "dependencies": {
+    "body-parser": "^1.9.1",
     "express": "^4.10.0",
     "express3-handlebars": "^0.5.2"
   },
