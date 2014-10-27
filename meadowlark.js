@@ -3,7 +3,18 @@ var fortune = require('./libs/fortune');
 
 var app = express();
 
-var handlebars = require('express3-handlebars').create({defaultLayout: 'main'});
+var handlebars = require('express3-handlebars').create({
+  defaultLayout: 'main',
+  helpers: {
+    section: function (name, options) {
+      if (!this._sections) {
+        this._sections = {};
+      }
+      this._sections[name] = options.fn(this);
+      return null;
+    }
+  }
+});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -84,6 +95,10 @@ app.get('/headers', function (req, res) {
     s += name + ': ' + req.headers[name] + '\n';
   }
   res.send(s);
+});
+
+app.get('/jquery-test', function (req, res) {
+  res.render('jquery-test');
 });
 
 // custome 404 page
